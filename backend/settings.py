@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "users",
     "categories",
     "products",
+    "tables",
 ]
 
 AUTH_USER_MODEL = "users.User"
