@@ -4,5 +4,52 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintArgs": [
+			"--load-plugins=pylint_django",
+			"--django-settings-module=backend.settings"
+		],
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.indexing": true,
+		"python.analysis.packageIndexDepths": [
+			{
+				"name": "django",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
+			{
+				"name": "rest_framework",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
+			{
+				"name": "drf_yasg",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
+			{
+				"name": "django_filters",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
+		],
+		"python.analysis.extraPaths": [
+			// "${workspaceFolder}/folder_to_:looking/**"
+			"${workspaceFolder}/categories/**",
+			"${workspaceFolder}/categories/**/**",
+			"${workspaceFolder}/orders/**",
+			"${workspaceFolder}/orders/**/**",
+			"${workspaceFolder}/payments/**",
+			"${workspaceFolder}/payments/**/**",
+			"${workspaceFolder}/products/**",
+			"${workspaceFolder}/products/**/**",
+			"${workspaceFolder}/tables/**",
+			"${workspaceFolder}/tables/**/**",
+			"${workspaceFolder}/users/**",
+			"${workspaceFolder}/users/**/**",
+		],
+	}
 }
