@@ -22,6 +22,7 @@ from rest_framework import permissions
 
 from users.api.router import router as user_router
 from categories.api.router import router as category_router
+from products.api.router import router as product_router
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -44,5 +45,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("users.api.router")),  # auth/me  auth/login/
     path("api/", include(user_router.urls)),
-    path("api/", include(category_router.urls))
+    path("api/", include(category_router.urls)),
+    path("api/", include(product_router.urls)),
 ]

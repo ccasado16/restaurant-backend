@@ -30,6 +30,11 @@
 				"depth": 10,
 				"includeAllSymbols": true
 			},
+			{
+				"name": "django_filters",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
 		],
 		"python.analysis.extraPaths": [
 			// "${workspaceFolder}/folder_to_:looking/**"
