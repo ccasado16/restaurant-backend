@@ -25,6 +25,11 @@
 				"depth": 10,
 				"includeAllSymbols": true
 			},
+			{
+				"name": "drf_yasg",
+				"depth": 10,
+				"includeAllSymbols": true
+			},
 		],
 		"python.analysis.extraPaths": [
 			// "${workspaceFolder}/folder_to_:looking/**"
