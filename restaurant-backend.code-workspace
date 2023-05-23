@@ -38,11 +38,17 @@
 		],
 		"python.analysis.extraPaths": [
 			// "${workspaceFolder}/folder_to_:looking/**"
+			"${workspaceFolder}/categories/**",
 			"${workspaceFolder}/categories/**/**",
+			"${workspaceFolder}/orders/**",
 			"${workspaceFolder}/orders/**/**",
+			"${workspaceFolder}/payments/**",
 			"${workspaceFolder}/payments/**/**",
+			"${workspaceFolder}/products/**",
 			"${workspaceFolder}/products/**/**",
+			"${workspaceFolder}/tables/**",
 			"${workspaceFolder}/tables/**/**",
+			"${workspaceFolder}/users/**",
 			"${workspaceFolder}/users/**/**",
 		],
 	}
