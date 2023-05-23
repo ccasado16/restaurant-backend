@@ -1,7 +1,5 @@
 from django.contrib.auth.hashers import make_password
-from rest_framework.permissions import IsAdminUser, IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.permissions import IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from users.api.serializers import UserSerializer
@@ -26,10 +24,3 @@ class UserViewSet(ModelViewSet):
             request.data["password"] = request.user.password
 
         return super().update(request, *args, **kwargs)
-
-
-class UserView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        return Response(UserSerializer(request.user).data)
