@@ -19,13 +19,15 @@ from django.urls import include, path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from rest_framework.routers import DefaultRouter
 
-from categories.api.router import router as category_router
-from orders.api.router import router as order_router
-from payments.api.router import router as payment_router
-from products.api.router import router as product_router
-from tables.api.router import router as table_router
-from users.api.router import router as user_router
+from categories.api.viewsets import CategoryViewSet
+from orders.api.viewsets import OrderViewSet
+from payments.api.viewsets import PaymentViewSet
+from products.api.viewsets import ProductViewSet
+from tables.api.viewsets import TableViewSet
+from users.api import urls as user_auth_urls
+from users.api.viewsets import UserViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -37,6 +39,14 @@ schema_view = get_schema_view(
     permission_classes=[permissions.AllowAny],
 )
 
+router = DefaultRouter()
+router.register("users", UserViewSet, basename="users")
+router.register("categories", CategoryViewSet, basename="categories")
+router.register("products", ProductViewSet, basename="products")
+router.register("tables", TableViewSet, basename="tables")
+router.register("orders", OrderViewSet, basename="orders")
+router.register("payments", PaymentViewSet, basename="payments")
+
 urlpatterns = [
     path(
         "docs/",
@@ -46,11 +56,6 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),  # api documentation
     path("admin/", admin.site.urls),
-    path("api/", include("users.api.router")),  # auth/me  auth/login/
-    path("api/", include(user_router.urls)),
-    path("api/", include(category_router.urls)),
-    path("api/", include(product_router.urls)),
-    path("api/", include(table_router.urls)),
-    path("api/", include(order_router.urls)),
-    path("api/", include(payment_router.urls)),
+    path("api/", include(user_auth_urls)),  # auth/me  auth/login/
+    path("api/", include(router.urls)),
 ]
