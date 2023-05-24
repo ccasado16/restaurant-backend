@@ -25,6 +25,7 @@ from orders.api.router import router as order_router
 from payments.api.router import router as payment_router
 from products.api.router import router as product_router
 from tables.api.router import router as table_router
+from users.api import urls as user_auth_urls
 from users.api.router import router as user_router
 
 schema_view = get_schema_view(
@@ -46,7 +47,7 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),  # api documentation
     path("admin/", admin.site.urls),
-    path("api/", include("users.api.router")),  # auth/me  auth/login/
+    path("api/", include(user_auth_urls)),  # auth/me  auth/login/
     path("api/", include(user_router.urls)),
     path("api/", include(category_router.urls)),
     path("api/", include(product_router.urls)),

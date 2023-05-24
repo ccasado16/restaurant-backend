@@ -1,8 +1,10 @@
-from django.urls import include, path
+from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView
 
-from users.api.router import router
+from users.views import UserView
 
-
+# For user authentication
 urlpatterns = [
-    path("", include(router.urls)),
+    path("auth/login/", TokenObtainPairView.as_view()),
+    path("auth/me/", UserView.as_view()),
 ]

@@ -8,8 +8,3 @@ from users.views import UserView
 router = DefaultRouter()
 
 router.register("users", UserViewSet, basename="users")
-
-urlpatterns = [
-    path("auth/login/", TokenObtainPairView.as_view()),
-    path("auth/me/", UserView.as_view()),
-]
